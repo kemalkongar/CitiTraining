@@ -1,7 +1,7 @@
 FROM maven:3.6.3-openjdk-11 AS compile
 COPY . /usr/src/mymaven
 WORKDIR /usr/src/mymaven
-RUN mvn -Dmaven.test.skip=true  -Djar.finalName=myapp.jar clean package
+RUN mvn -Dmaven.test.skip=true  clean package -Djar.finalName="myapp"
 
 
 
