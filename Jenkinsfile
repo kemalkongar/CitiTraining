@@ -1,4 +1,4 @@
-def projectName = 'Miss2TrainingProjecto'
+def projectName = 'Miss2TrainingProject'
 def version = "0.0.${currentBuild.number}"
 def dockerImageTag = "${projectName}:${version}"
 
@@ -6,25 +6,12 @@ pipeline {
   agent any
 
   stages {
-    stage('Test') {
-      steps {
-        sh 'chmod a+x mvnw'
-        sh './mvnw clean test'
+     stage('Build docker image') {
+          // this stage also builds and tests the Java project using Maven
+          steps {
+            sh "docker build -t ${dockerImageTag} ."
+          }
       }
-    }
-
-    stage('Build') {
-      steps {
-        sh './mvnw package'
-      }
-    }
-
-    stage('Build Container') {
-      steps {
-        sh "docker build -t ${dockerImageTag} ."
-      }
-    }
-
     stage('Deploy Container To Openshift') {
       steps {
         sh "oc login https://localhost:8443 --username admin --password admin --insecure-skip-tls-verify=true"
