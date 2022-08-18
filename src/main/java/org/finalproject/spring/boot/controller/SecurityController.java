@@ -1,5 +1,6 @@
 package org.finalproject.spring.boot.controller;
 //import org.apache.log4j.Logger;
+
 import io.swagger.annotations.ApiOperation;
 import org.finalproject.spring.boot.entities.Security;
 import org.finalproject.spring.boot.service.SecurityService;
@@ -16,14 +17,14 @@ public class SecurityController {
     @Autowired
     private SecurityService service;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public Security getSecurityById(@PathVariable("id") int id) {
-        return service.getSecurityById(id);
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    public Security securityTest() {
+        Security testSec = new Security("test", "testSecurity", "testEx", 0);
+        return testSec;
     }
 
-    @ApiOperation(value = "findAll", nickname = "findAll")
-    @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Security> findAll() {
+    @RequestMapping(method = RequestMethod.GET, value = "/all")
+    public Iterable<Security> getAll() {
         return service.getSecurities();
     }
 }

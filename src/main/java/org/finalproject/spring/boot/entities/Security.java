@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "securities")
+
 public class Security {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,10 @@ public class Security {
         this.name = name;
         this.exchange = exchange;
         this.currentPrice = currentPrice;
+    }
+
+    public void setIdSecurities(int idSecurities) {
+        this.idSecurities = idSecurities;
     }
 
     public int getIdSecurities() {
