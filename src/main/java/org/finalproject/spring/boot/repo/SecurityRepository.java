@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SecurityRepository extends JpaRepository<Security, Integer> {
     Security getByName(String name);
+
     Security getByTicker(String ticker);
 
     Security getById(Integer id);
