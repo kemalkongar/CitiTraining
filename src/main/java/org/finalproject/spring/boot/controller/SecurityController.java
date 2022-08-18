@@ -2,10 +2,10 @@ package org.finalproject.spring.boot.controller;
 //import org.apache.log4j.Logger;
 
 import org.finalproject.spring.boot.entities.Security;
-import org.finalproject.spring.boot.repo.SecurityRepository;
 import org.finalproject.spring.boot.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,10 +20,11 @@ public class SecurityController {
     SecurityService securityService;
 
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<Security> list() {
         return securityService.listAllSecurities();
     }
+
     @GetMapping("/{id}")
     public Security getSecurityById(@PathVariable Integer id) {
         return securityService.getSecurityById(id);
@@ -34,10 +35,8 @@ public class SecurityController {
         return securityService.getSecurityByTicker(ticker);
     }
 
-    @PostMapping("/addSecurity")
+    @PostMapping(value = "/addSecurity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addSecurity(@RequestBody Security security) {
         securityService.saveSecurity(security);
     }
-
-
 }

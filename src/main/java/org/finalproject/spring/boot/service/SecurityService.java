@@ -33,5 +33,4 @@ public class SecurityService {
     public void saveSecurity(Security security) {
         securityRepository.save(security);
     }
-
 }
