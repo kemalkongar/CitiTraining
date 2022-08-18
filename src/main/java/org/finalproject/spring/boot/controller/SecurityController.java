@@ -1,12 +1,14 @@
 package org.finalproject.spring.boot.controller;
 //import org.apache.log4j.Logger;
 
-import io.swagger.annotations.ApiOperation;
 import org.finalproject.spring.boot.entities.Security;
+import org.finalproject.spring.boot.repo.SecurityRepository;
 import org.finalproject.spring.boot.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/securities")
@@ -15,16 +17,27 @@ import org.springframework.web.bind.annotation.*;
 public class SecurityController {
 
     @Autowired
-    private SecurityService service;
+    SecurityService securityService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    public Security securityTest() {
-        Security testSec = new Security("test", "testSecurity", "testEx", 0);
-        return testSec;
+
+    @GetMapping("/all")
+    public List<Security> list() {
+        return securityService.listAllSecurities();
+    }
+    @GetMapping("/{id}")
+    public Security getSecurityById(@PathVariable Integer id) {
+        return securityService.getSecurityById(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/all")
-    public Iterable<Security> getAll() {
-        return service.getSecurities();
+    @GetMapping("/ticker/{ticker}")
+    public Security nameTest(@PathVariable String ticker) {
+        return securityService.getSecurityByTicker(ticker);
     }
+
+    @PostMapping("/addSecurity")
+    public void addSecurity(@RequestBody Security security) {
+        securityService.saveSecurity(security);
+    }
+
+
 }

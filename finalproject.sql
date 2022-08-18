@@ -1,7 +1,7 @@
 -- ------------------------------
 -- Schema for Brokerage Account
 -- ------------------------------ 
-
+-- DROP DATABASE BrokerageAccount;
 CREATE SCHEMA IF NOT EXISTS BrokerageAccount;
 
 USE BrokerageAccount ;
@@ -12,14 +12,14 @@ USE BrokerageAccount ;
 
 
 CREATE TABLE IF NOT EXISTS Securities(
-  idSecurities INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+  id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   ticker VARCHAR(45) NOT NULL UNIQUE,
   name VARCHAR(45) NOT NULL UNIQUE,
   exchange VARCHAR(45) NOT NULL,
-  currentPrice DECIMAL(8,2) NULL);
+  current_price DECIMAL(8,2) NULL);
 
 CREATE TABLE IF NOT EXISTS Orders(
-  idOrders INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+  id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   security INT NOT NULL,
   quantity INT NOT NULL,
   Status VARCHAR(45) NOT NULL,
@@ -28,40 +28,40 @@ CREATE TABLE IF NOT EXISTS Orders(
   orderPlacedTime DATE NOT NULL,
   orderType VARCHAR(45) NOT NULL,
 
-  CONSTRAINT idSecurities
+  CONSTRAINT securityId
     FOREIGN KEY (security)
-    REFERENCES Securities (idSecurities)
+    REFERENCES Securities (id)
    );
 
 CREATE TABLE IF NOT EXISTS Holdings (
-  idULot INT NOT NULL NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+  id INT NOT NULL NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   security INT NOT NULL,
   lot INT NOT NULL,
   buyPrice DECIMAL(8,2) NOT NULL,
-  CONSTRAINT security
+  CONSTRAINT securityIdHoldings
     FOREIGN KEY (security)
-    REFERENCES Securities (idSecurities)
+    REFERENCES Securities (id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS OrderQueue (
-  idOrderQueue INT NOT NULL UNIQUE PRIMARY KEY,
-  CONSTRAINT idOrderQueue
-    FOREIGN KEY (idOrderQueue)
-    REFERENCES Orders(idOrders)
+  id INT NOT NULL UNIQUE PRIMARY KEY,
+  CONSTRAINT orderId
+    FOREIGN KEY (id)
+    REFERENCES Orders(id)
    );
 
 
 -- ------------------------------
 -- Insert Data
--- ------------------------------ 
+-- ------------------------------
 
-insert into Securities (ticker,name,exchange,currentPrice)
-values ("AAPL", "Apple", "NASDAQ", 171.68),
-("C", "Citi", "NYSE", 54.27),
-("MS", "Morgan Stanley", "NYSE", 91.35),
- ("MSFT", "Microsoft", "NASDAQ", 291.32),
- ("GS", "Goldman Sachs", "NYSE", 353.74);
+insert into Securities (id, ticker,name,exchange,current_price) values
+(1, "AAPL", "Apple", "NASDAQ", 171.68),
+(2, "C", "Citi", "NYSE", 54.27),
+(3, "MS", "Morgan Stanley", "NYSE", 91.35),
+(4, "MSFT", "Microsoft", "NASDAQ", 291.32),
+(5, "GS", "Goldman Sachs", "NYSE", 353.74);
 
 
 insert into Orders values 

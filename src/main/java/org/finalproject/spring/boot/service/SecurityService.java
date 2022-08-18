@@ -1,21 +1,37 @@
 package org.finalproject.spring.boot.service;
 
 import org.finalproject.spring.boot.entities.Security;
+import org.finalproject.spring.boot.repo.SecurityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface SecurityService {
+import javax.transaction.Transactional;
+import java.util.List;
 
-	Iterable<Security> getSecurities();
+@Service
+@Transactional
+public class SecurityService {
+    @Autowired
+    private SecurityRepository securityRepository;
 
-	Security getSecurityByName(String name);
+    public List<Security> listAllSecurities() {
+        return securityRepository.findAll();
+    }
 
-	Security getSecurityByTicker(String ticker);
+    public Security getSecurityById(Integer id) {
+        return securityRepository.getById(id);
+    }
 
-	Security getSecurityById(int id);
+    public Security getSecurityByName(String name) {
+        return securityRepository.getByName(name);
+    }
 
-	Security setSecurityPriceByName(String name, double newPrice);
+    public Security getSecurityByTicker(String name) {
+        return securityRepository.getByTicker(name);
+    }
 
-	Security setSecurityPriceByTicker(String name, double newPrice);
-
-	void deleteSecurity(int id);
+    public void saveSecurity(Security security) {
+        securityRepository.save(security);
+    }
 
 }
