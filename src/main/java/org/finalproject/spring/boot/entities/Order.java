@@ -1,5 +1,7 @@
 package org.finalproject.spring.boot.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -19,15 +21,17 @@ public class Order {
     private int quantity;
 
     @Column(name = "order_status")
-    private LocalDate order_status;
+    private String orderStatus;
 
     @Column(name = "execute_by")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate executeBy;
 
     @Column(name = "execute_price")
     private double executePrice;
 
     @Column(name = "order_placed_time")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate orderPlacedTime;
 
     @Column(name = "order_type")
@@ -37,7 +41,7 @@ public class Order {
         return id;
     }
 
-    public int getSecurity() {
+    public int getSecurityId() {
         return securityId;
     }
 
@@ -51,6 +55,9 @@ public class Order {
 
     public LocalDate getExecuteBy() {
         return executeBy;
+    }
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
     public void setExecuteBy(LocalDate executeBy) {
@@ -74,9 +81,10 @@ public class Order {
         return orderType;
     }
 
-    public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, String orderType) {
+    public Order(int security, int quantity, String orderStatus, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, String orderType) {
         this.securityId = security;
         this.quantity = quantity;
+        this.orderStatus = orderStatus;
         this.executeBy = executeBy;
         this.executePrice = executePrice;
         this.orderPlacedTime = orderPlacedTime;
