@@ -16,7 +16,7 @@ public class HoldingsController {
     @Autowired
     HoldingsService holdingsService;
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<Holdings> list() {
         return holdingsService.listAllHoldings();
     }
@@ -26,8 +26,8 @@ public class HoldingsController {
     }
 
     @GetMapping("/security/{security}")
-    public Holdings getHoldingsBySecurity(@PathVariable Integer security) {
-        return holdingsService.getHoldingsBySecurity(security);
+    public Holdings getHoldingsBySecurityId(@PathVariable Integer security) {
+        return holdingsService.getHoldingsBySecurityId(security);
     }
 
     @GetMapping("/lot/{lot}")

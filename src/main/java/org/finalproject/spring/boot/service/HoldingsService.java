@@ -22,7 +22,7 @@ public class HoldingsService {
         return holdingsRepository.getById(id);
     }
 
-    public Holdings getHoldingsBySecurity(Integer security) {
+    public Holdings getHoldingsBySecurityId(Integer security) {
         return holdingsRepository.getBySecurity(security);
     }
 

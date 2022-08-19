@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api/orders")
 @ComponentScan("org.finalproject.spring.boot")
 @CrossOrigin
 public class OrderController {
