@@ -72,7 +72,7 @@ insert into Orders values
 (5, 4, 15, "SUCCESS", '2022-12-31', 290.5, '2022-08-17', "BUY"),
 (6, 2, 20, "SUCCESS", '2022-12-31', 53.5, '2022-08-17', "BUY");
 
-insert into Holdings values
+insert into Holdings (id, security, lot, buy_price) values
 (1, 1, 10, 171.15),
 (2, 3, 5, 92.5),
 (3, 4, 15, 350.5),
