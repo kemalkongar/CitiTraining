@@ -32,3 +32,5 @@ build/
 .vscode/
 
 target/
+target/classes/application.properties
+target/classes/application.properties

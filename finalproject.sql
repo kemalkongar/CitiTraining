@@ -1,7 +1,7 @@
 -- ------------------------------
 -- Schema for Brokerage Account
 -- ------------------------------ 
--- DROP DATABASE BrokerageAccount;
+DROP SCHEMA IF EXISTS BrokerageAccount;
 CREATE SCHEMA IF NOT EXISTS BrokerageAccount;
 
 USE BrokerageAccount ;
@@ -20,16 +20,16 @@ CREATE TABLE IF NOT EXISTS Securities(
 
 CREATE TABLE IF NOT EXISTS Orders(
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
-  security INT NOT NULL,
+  security_id INT NOT NULL,
   quantity INT NOT NULL,
-  Status VARCHAR(45) NOT NULL,
-  executeBy DATE NULL,
-  executePrice DECIMAL(8,2) NOT NULL,
-  orderPlacedTime DATE NOT NULL,
-  orderType VARCHAR(45) NOT NULL,
+  order_status VARCHAR(45) NOT NULL,
+  execute_by DATE NULL,
+  execute_price DECIMAL(8,2) NOT NULL,
+  order_placed_time DATE NOT NULL,
+  order_type VARCHAR(45) NOT NULL,
 
   CONSTRAINT securityId
-    FOREIGN KEY (security)
+    FOREIGN KEY (security_id)
     REFERENCES Securities (id)
    );
 

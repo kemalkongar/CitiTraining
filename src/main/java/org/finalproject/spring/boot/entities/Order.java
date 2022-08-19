@@ -12,22 +12,25 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "security")
-    private int security;
+    @Column(name = "security_id")
+    private int securityId;
 
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "exchange")
+    @Column(name = "order_status")
+    private LocalDate order_status;
+
+    @Column(name = "execute_by")
     private LocalDate executeBy;
 
-    @Column(name = "executePrice")
+    @Column(name = "execute_price")
     private double executePrice;
 
-    @Column(name = "orderPlacedTime")
+    @Column(name = "order_placed_time")
     private LocalDate orderPlacedTime;
 
-    @Column(name = "orderType")
+    @Column(name = "order_type")
     private String orderType;
 
     public int getId() {
@@ -35,7 +38,7 @@ public class Order {
     }
 
     public int getSecurity() {
-        return security;
+        return securityId;
     }
 
     public int getQuantity() {
@@ -72,12 +75,15 @@ public class Order {
     }
 
     public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, String orderType) {
-        this.security = security;
+        this.securityId = security;
         this.quantity = quantity;
         this.executeBy = executeBy;
         this.executePrice = executePrice;
         this.orderPlacedTime = orderPlacedTime;
         this.orderType = orderType;
+    }
+
+    public Order(){
     }
 
 }
