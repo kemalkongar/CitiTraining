@@ -6,6 +6,7 @@ import org.finalproject.spring.boot.entities.Security;
 import org.finalproject.spring.boot.service.HoldingsService;
 import org.finalproject.spring.boot.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public List<Order> list() {
         return orderService.listAllOrders();
     }
@@ -34,11 +35,6 @@ public class OrderController {
     @GetMapping("/security/{security}")
     public List<Order> getOrderBySecurity(@PathVariable Integer security) {
         return orderService.getOrderBySecurity(security);
-    }
-
-    @GetMapping("/quantity/{q}")
-    public List<Order> getOrderByQuantityLowerThan(@PathVariable Integer quantity) {
-        return orderService.getQuantityHigherThan(quantity);
     }
 
     @PostMapping(value = "/addOrder", consumes = MediaType.APPLICATION_JSON_VALUE)

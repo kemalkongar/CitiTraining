@@ -9,17 +9,10 @@ import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    //            this.security = security;
-//        this.quantity = quantity;
-//        this.executeBy = executeBy;
-//        this.executePrice = executePrice;
-//        this.orderPlacedTime = orderPlacedTime;
-//        this.orderType = orderType;
     Order getById(int id);
 
-    List<Order> getBySecurity(int sid);
+    List<Order> getBySecurityId(int sid);
     List<Order> getByOrderType(String orderType);
-    List<Order> getByQuantityHigherThan(int quantity);
 
 
 }
