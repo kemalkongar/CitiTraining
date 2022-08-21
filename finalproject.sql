@@ -22,11 +22,11 @@ CREATE TABLE IF NOT EXISTS Orders(
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   security_id INT NOT NULL,
   quantity INT NOT NULL,
-  order_status VARCHAR(45) NOT NULL,
-  execute_by DATE NULL,
+  order_status ENUM('SUCCESS', 'FAILED', 'PENDING'),
+  execute_by DATE NOT NULL,
   execute_price DECIMAL(8,2) NOT NULL,
   order_placed_time DATE NOT NULL,
-  order_type VARCHAR(45) NOT NULL,
+  order_type ENUM('BUY', 'SELL'),
 
   CONSTRAINT securityId
     FOREIGN KEY (security_id)
@@ -50,6 +50,22 @@ CREATE TABLE IF NOT EXISTS OrderQueue (
     FOREIGN KEY (id)
     REFERENCES Orders(id)
    );
+
+delimiter //
+CREATE TRIGGER check_order
+BEFORE INSERT
+ON Orders 
+FOR EACH ROW
+BEGIN
+IF NEW.execute_by < CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT='order expire date must be a future date';
+    END IF;
+IF NEW.order_placed_time > CURRENT_DATE THEN
+    SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT='order must be placed in the past';
+    END IF;
+END;//
+
+delimiter ;
 
 
 -- ------------------------------
