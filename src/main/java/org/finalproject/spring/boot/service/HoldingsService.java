@@ -22,13 +22,15 @@ public class HoldingsService {
         return holdingsRepository.getById(id);
     }
 
-    public Holdings getHoldingsBySecurityId(Integer security) {
+    public List<Holdings> getHoldingsBySecurityId(Integer security) {
         return holdingsRepository.getBySecurity(security);
     }
 
-    public Holdings getHoldingsByLot(Integer lot) {
+    public List<Holdings>  getHoldingsByLot(Integer lot) {
         return holdingsRepository.getByLot(lot);
     }
+
+    public List<Holdings>  findByBuyPriceBetween(double min, double max) {return holdingsRepository.findByBuyPriceBetween(min, max);}
 
     public void saveHoldings(Holdings holdings) {
         holdingsRepository.save(holdings);
