@@ -2,6 +2,7 @@ package org.finalproject.spring.boot.service;
 
 import org.finalproject.spring.boot.entities.Order;
 import org.finalproject.spring.boot.repo.OrderRepository;
+import org.finalproject.spring.boot.repo.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private SecurityService securityService;
 
     public List<Order> listAllOrders() {
         return orderRepository.findAll();
@@ -29,9 +33,32 @@ public class OrderService {
         return orderRepository.getByOrderType(orderType);
     }
 
+    public void placeOrder(Order order) {
+        order.setOrderStatus(Order.OrderStatus.PENDING);
+        if (order.getOrderType().equals("BUY") &&
+                order.getExecutePrice()<securityService.getSecurityById(order.getSecurityId()).getCurrentPrice()){
+            Order.pendingBuyOrders.add(order);
 
-    public void saveOrder(Order order) {
+        } else if (order.getOrderType().equals("SELL") &&
+                order.getExecutePrice()>securityService.getSecurityById(order.getSecurityId()).getCurrentPrice()){
+            Order.pendingSellOrders.add(order);
+
+        } else { // price match
+            this.executeOrder(order);
+        }
         orderRepository.save(order);
     }
 
+    public void executeOrder(Order order) {
+        try {
+            // TODO: detailed process of execution, currently just assume every execution succeeds
+            order.setOrderStatus(Order.OrderStatus.SUCCESS);
+        } catch (Exception e) {
+            order.setOrderStatus(Order.OrderStatus.INCOMPLETE);
+        }
+    }
+
+    public void removeOrder(int i){
+        orderRepository.deleteById(i);
+    }
 }

@@ -39,7 +39,11 @@ public class OrderController {
 
     @PostMapping(value = "/addOrder", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addOrder(@RequestBody Order order) {
-        orderService.saveOrder(order);
+        orderService.placeOrder(order);
     }
 
+    @DeleteMapping(value = "/removeOrder/{delId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void removeOrder(@PathVariable Integer delId) {
+        orderService.removeOrder(delId);
+    }
 }
