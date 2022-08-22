@@ -3,7 +3,7 @@ package org.finalproject.spring.boot.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "securities")
+@Table(name = "Securities")
 
 public class Security {
     //@Column(name = "idSecurities")

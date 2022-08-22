@@ -3,7 +3,7 @@ package org.finalproject.spring.boot.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "holdings")
+@Table(name = "Holdings")
 public class Holdings {
 
     @Id

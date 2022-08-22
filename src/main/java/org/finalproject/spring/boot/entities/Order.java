@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "Orders")
 public class Order {
 
 
