@@ -36,11 +36,11 @@ public class OrderService {
     public void placeOrder(Order order) {
         order.setOrderStatus(Order.OrderStatus.PENDING);
         if (order.getOrderType().equals("BUY") &&
-                order.getExecutePrice()<securityService.getSecurityById(order.getSecurityId()).getCurrentPrice()){
+                order.getExecutePrice()<securityService.getSecurityById(order.getSecurityId()).getT0()){
             Order.pendingBuyOrders.add(order);
 
         } else if (order.getOrderType().equals("SELL") &&
-                order.getExecutePrice()>securityService.getSecurityById(order.getSecurityId()).getCurrentPrice()){
+                order.getExecutePrice()>securityService.getSecurityById(order.getSecurityId()).getT0()){
             Order.pendingSellOrders.add(order);
 
         } else { // price match
