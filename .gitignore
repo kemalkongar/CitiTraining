@@ -31,8 +31,3 @@ build/
 ### VS Code ###
 .vscode/
 
-target/
-target/classes/application.properties
-target/classes/application.properties
-.idea/misc.xml
-.idea/compiler.xml

@@ -12,11 +12,20 @@ USE BrokerageAccount ;
 
 
 CREATE TABLE IF NOT EXISTS Securities(
-  id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+  id INT NOT NULL UNIQUE PRIMARY KEY,
   ticker VARCHAR(45) NOT NULL UNIQUE,
-  name VARCHAR(45) NOT NULL UNIQUE,
+  name VARCHAR(300) NOT NULL,
   exchange VARCHAR(45) NOT NULL,
-  current_price DECIMAL(8,2) NULL);
+  t0 DECIMAL(8,2),
+  tminus1 DECIMAL(8,2),
+  tminus2 DECIMAL(8,2),
+  tminus3 DECIMAL(8,2),
+  tminus4 DECIMAL(8,2),
+  tminus5 DECIMAL(8,2),
+  tminus6 DECIMAL(8,2),
+  tminus7 DECIMAL(8,2),
+  tminus8 DECIMAL(8,2),
+  tminus9 DECIMAL(8,2) NULL);
 
 CREATE TABLE IF NOT EXISTS Orders(
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
@@ -72,27 +81,27 @@ delimiter ;
 -- Insert Data
 -- ------------------------------
 
-insert into Securities (id, ticker,name,exchange,current_price) values
-(1, "AAPL", "Apple", "NASDAQ", 171.68),
-(2, "C", "Citi", "NYSE", 54.27),
-(3, "MS", "Morgan Stanley", "NYSE", 91.35),
-(4, "MSFT", "Microsoft", "NASDAQ", 291.32),
-(5, "GS", "Goldman Sachs", "NYSE", 353.74);
+-- insert into Securities (id, ticker,name,exchange,current_price) values
+-- (1, "AAPL", "Apple", "NASDAQ", 171.68),
+-- (2, "C", "Citi", "NYSE", 54.27),
+-- (3, "MS", "Morgan Stanley", "NYSE", 91.35),
+-- (4, "MSFT", "Microsoft", "NASDAQ", 291.32),
+-- (5, "GS", "Goldman Sachs", "NYSE", 353.74);
 
 
-insert into Orders values 
-(1, 1, 5, "SUCCESS", '2022-12-31', 170.15, '2022-08-12', "BUY"),
-(2, 1, 5, "SUCCESS", '2022-12-31', 172.5, '2022-08-12', "SELL"),
-(3, 1, 10, "SUCCESS", '2022-12-31', 171.15, '2022-08-17', "BUY"),
-(4, 3, 5, "SUCCESS", '2022-12-31', 92.5, '2022-08-17', "BUY"),
-(5, 4, 15, "SUCCESS", '2022-12-31', 290.5, '2022-08-17', "BUY"),
-(6, 2, 20, "SUCCESS", '2022-12-31', 53.5, '2022-08-17', "BUY");
+-- insert into Orders values 
+-- (1, 1, 5, "SUCCESS", '2022-12-31', 170.15, '2022-08-12', "BUY"),
+-- (2, 1, 5, "SUCCESS", '2022-12-31', 172.5, '2022-08-12', "SELL"),
+-- (3, 1, 10, "SUCCESS", '2022-12-31', 171.15, '2022-08-17', "BUY"),
+-- (4, 3, 5, "SUCCESS", '2022-12-31', 92.5, '2022-08-17', "BUY"),
+-- (5, 4, 15, "SUCCESS", '2022-12-31', 290.5, '2022-08-17', "BUY"),
+-- (6, 2, 20, "SUCCESS", '2022-12-31', 53.5, '2022-08-17', "BUY");
 
-insert into Holdings (id, security, lot, buy_price) values
-(1, 1, 10, 171.15),
-(2, 3, 5, 92.5),
-(3, 4, 15, 350.5),
-(4, 2, 20, 53.5);
+-- insert into Holdings (id, security, lot, buy_price) values
+-- (1, 1, 10, 171.15),
+-- (2, 3, 5, 92.5),
+-- (3, 4, 15, 350.5),
+-- (4, 2, 20, 53.5);
 
 -- select * from Securities;
 
