@@ -1,0 +1,22 @@
+<p>security list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ticker</th>
+            <th scope="col">name</th>
+            <th scope="col">price</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of mySecurities">
+            <td>{{ s.ticker }}</td>
+            <td>{{ s.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
