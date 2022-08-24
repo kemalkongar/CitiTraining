@@ -5,5 +5,5 @@ constructor(
   public id: number,
   public ticker: string,
   public name: string,
-  public price: number) {
+  public t0: number) {
 }}

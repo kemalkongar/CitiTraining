@@ -10,7 +10,6 @@ import { PlotComponent } from './plot/plot.component';
 import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
