@@ -8,7 +8,6 @@ import { OrderService } from '../order.service';
 })
 export class OrderListComponent implements OnInit {
 
-  @Input()
   myOrders!: Order[];
   orderService: OrderService;
 

@@ -9,7 +9,6 @@ import { HoldingsService } from '../holdings.service';
 })
 export class HoldingsListComponent implements OnInit {
 
-  @Input()
   myHoldings!: Holdings[];
   holdingService: HoldingsService;
 
