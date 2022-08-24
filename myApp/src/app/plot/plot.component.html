@@ -1,8 +1,25 @@
-line graph
 <div class="lineChart">
-    <table>
-    <tr *ngFor="let s of mySecurities">
-        <!-- <td>{{ s.t0 }}</td> -->
-      </tr>
-    </table>
+  <div class="legend-title">
+    Security Price in 10 Days
 </div>
+<!-- <div class="legend">
+    <igx-legend
+    orientation="Horizontal"
+    name="Legend"
+    #legend>
+    </igx-legend>
+</div>
+<div class="container fill"> -->
+  <!-- where to get dataSource???? -->
+  <!-- <igx-category-chart [dataSource]="oneSecurity" 
+  width="800px"
+  height="500px"
+  yAxisMinimumValue="0">
+</igx-category-chart>
+</div> -->
+
+<div *ngFor="let s of oneSecurity">
+  {{s.t0 }}
+</div>
+
+ 
