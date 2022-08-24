@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS Orders(
   execute_price DECIMAL(8,2) NOT NULL,
   order_placed_time DATE NOT NULL,
   order_type ENUM('BUY', 'SELL'),
+
   CONSTRAINT securityId
     FOREIGN KEY (security_id)
     REFERENCES Securities (id)
@@ -44,6 +45,8 @@ CREATE TABLE IF NOT EXISTS Orders(
 CREATE TABLE IF NOT EXISTS Holdings (
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   security INT NOT NULL,
+  security_ticker varchar(45),
+  security_name varchar(300),
   lot INT NOT NULL,
   buy_price DECIMAL(8,2) NOT NULL,
   CONSTRAINT securityIdHoldings
@@ -74,40 +77,3 @@ IF NEW.order_placed_time > CURRENT_DATE THEN
 END;//
 
 delimiter ;
-
-
--- ------------------------------
--- Insert Data
--- ------------------------------
-
--- insert into Securities (id, ticker,name,exchange,current_price) values
--- (1, "AAPL", "Apple", "NASDAQ", 171.68),
--- (2, "C", "Citi", "NYSE", 54.27),
--- (3, "MS", "Morgan Stanley", "NYSE", 91.35),
--- (4, "MSFT", "Microsoft", "NASDAQ", 291.32),
--- (5, "GS", "Goldman Sachs", "NYSE", 353.74);
-
--- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (1,'A','Agilent Technologies, Inc. Common Stock','nyse',128.88,132.58,131.95,133.55,133.90,132.77,142.29,139.97,137.62,133.94);
--- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (2,'AA','Alcoa Inc. Common Stock','nyse',50.38,52.95,53.27,52.76,51.70,53.12,51.98,53.84,51.01,50.27);
--- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (3,'AAC','AAC Holdings, Inc. Common Stock','nyse',9.88,9.88,9.88,9.88,9.89,9.89,9.89,9.87,9.88,9.87);
--- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (4,'AAN','Aaron\'s, Inc. Common Stock','nyse',13.93,14.31,14.55,14.60,14.50,15.00,14.60,14.45,14.03,13.76);
-
--- insert into Orders  values 
--- (1, 1, 5, "SUCCESS", '2022-12-31', 170.15, '2022-08-12', "BUY"),
--- (2, 1, 5, "SUCCESS", '2022-12-31', 172.5, '2022-08-12', "SELL"),
--- (3, 1, 10, "SUCCESS", '2022-12-31', 171.15, '2022-08-17', "BUY"),
--- (4, 3, 5, "SUCCESS", '2022-12-31', 92.5, '2022-08-17', "BUY"),
--- (5, 4, 15, "SUCCESS", '2022-12-31', 290.5, '2022-08-17', "BUY"),
--- (6, 2, 20, "SUCCESS", '2022-12-31', 53.5, '2022-08-17', "BUY");
-
--- insert into Holdings (id, security, lot, buy_price) values
--- (1, 1, 10, 171.15),
--- (2, 3, 5, 92.5),
--- (3, 4, 15, 350.5),
--- (4, 2, 20, 53.5);
-
--- select * from Securities;
-
--- select * from Orders;
-
--- select * from Holdings;
