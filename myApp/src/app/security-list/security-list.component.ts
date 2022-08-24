@@ -36,7 +36,7 @@ export class SecurityListComponent implements OnInit {
       this.mySecurities = data;
   }, error => {
     console.log('error');
-  });;
+  });
   //   .subscribe((data:any) => {
   //     this.mySecurities = data;
   //   });
