@@ -12,6 +12,7 @@ html{
     display: inline-flex;
     text-align:right;
     position:absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top:-20px;
     right:20px;
 
@@ -42,8 +43,10 @@ html{
     border-right: 4px solid #425e7f;/*Blinking cursor*/
   }
 .welcome {
+    background-color: #d1c0bd;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     margin:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 .mainPage {
     text-align: center;
@@ -164,7 +167,7 @@ box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 .searchTicker{
-    background-color: #c1cbd7;
+    background-color: #8696a7;
     margin-top: 50px;
     min-height: 200px;
     border-radius: 25px;
