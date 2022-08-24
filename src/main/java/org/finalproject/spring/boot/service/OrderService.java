@@ -2,11 +2,11 @@ package org.finalproject.spring.boot.service;
 
 import org.finalproject.spring.boot.entities.Order;
 import org.finalproject.spring.boot.repo.OrderRepository;
-import org.finalproject.spring.boot.repo.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @Transactional
@@ -18,8 +18,15 @@ public class OrderService {
     private SecurityService securityService;
 
     public List<Order> listAllOrders() {
-        return orderRepository.findAll();
+        return orderRepository.findAllOrdersWithSecurityName();
     }
+
+    public List<Order> listAllOrderQueue() {
+        List<Order> res = new ArrayList<>(Order.pendingBuyOrders);
+        res.addAll(new ArrayList<>(Order.pendingSellOrders));
+        return res;
+    }
+
 
     public Order getOrderById(int id) {
         return orderRepository.getById(id);
