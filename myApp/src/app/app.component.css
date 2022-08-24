@@ -1,27 +1,48 @@
-.html{
-    margin: 0;
-    padding:0;
-    border:0;
-    height:100%;
+html{
+    margin: 0px;
+    border:0px;
+    padding: 0px;
+    min-height: 140vh;;
     width:100%;
     font-family: Trebuchet MS, sans-serif;
-    background-color:black;
-    background-image:
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    background-color:#dcdddf;
+    
 }
 .header{
-    font-weight:300;
-    font-size:large;
-    font-style:bold;
+    display: inline-flex;
+    text-align:right;
+    position:absolute;
+    top:-20px;
+    right:20px;
+
+  }
+.header .typed{
+    margin-left: 10px;
+    line-height: 90px;
+    height: 50px;
+    line-height: 1;
 }
+.header .typed li{
+    color: #425e7f;
+    font-size: 40px;
+    font-weight: 600;
+    list-style: none;
+    top: 0;
+    left: 120;
+  }
+  .header .typed li span{
+    position: relative;
+  }
+  .header .typed li span::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 10;
+    border-right: 4px solid #425e7f;/*Blinking cursor*/
+  }
 .welcome {
-    background-color :#ececea;
-    /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     margin:0px;
 }
 .mainPage {
