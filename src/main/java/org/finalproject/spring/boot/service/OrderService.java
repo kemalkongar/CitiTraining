@@ -17,16 +17,19 @@ public class OrderService {
     @Autowired
     private SecurityService securityService;
 
-    public List<Order> listAllOrders() {
+    public List<Object> listAllOrders() {
         return orderRepository.findAllOrdersWithSecurityName();
     }
 
     public List<Order> listAllOrderQueue() {
+
         List<Order> res = new ArrayList<>(Order.pendingBuyOrders);
         res.addAll(new ArrayList<>(Order.pendingSellOrders));
         return res;
     }
-
+    public String getTickerBySid(int sid) {
+        return orderRepository.getTickerBySecurityId(sid);
+    }
 
     public Order getOrderById(int id) {
         return orderRepository.getById(id);
@@ -42,6 +45,7 @@ public class OrderService {
 
     public void placeOrder(Order order) {
         order.setOrderStatus(Order.OrderStatus.PENDING);
+
         if (order.getOrderType().equals("BUY") &&
                 order.getExecutePrice()<securityService.getSecurityById(order.getSecurityId()).getT0()){
             Order.pendingBuyOrders.add(order);

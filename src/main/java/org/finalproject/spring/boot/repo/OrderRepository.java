@@ -16,5 +16,8 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query(value="SELECT Orders.order_type AS order_type, Securities.name AS security_name, Orders.quantity AS quantity, Orders.execute_price AS execute_price, Orders.order_status AS order_status\n" +
             "FROM Orders\n" +
             "LEFT JOIN Securities ON Orders.security_id=Securities.id;",nativeQuery = true)
-    List<Order> findAllOrdersWithSecurityName();
+    List<Object> findAllOrdersWithSecurityName();
+
+    @Query(value="SELECT ticker FROM Securities WHERE id=?1 ;",nativeQuery = true)
+    String getTickerBySecurityId(int sid);
 }

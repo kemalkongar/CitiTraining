@@ -1,10 +1,15 @@
 package org.finalproject.spring.boot.controller;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
 import org.finalproject.spring.boot.entities.Holdings;
 import org.finalproject.spring.boot.entities.Order;
 import org.finalproject.spring.boot.entities.Security;
 import org.finalproject.spring.boot.service.HoldingsService;
 import org.finalproject.spring.boot.service.OrderService;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +33,7 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/")
-    public List<Order> list() {
+    public List<Object> list() {
         return orderService.listAllOrders();
     }
 
@@ -44,13 +49,19 @@ public class OrderController {
 
     @GetMapping("/queue")
     public ResponseEntity<java.lang.String> getOrderQueue() {
-        JSONObject jo = new JSONObject();
-        jo.put("name", "jon doe");
-        jo.put("age", "22");
-        jo.put("city", "chicago");
-        return new ResponseEntity<String>(jo.toString(), HttpStatus.OK);
-//        return jo;
-//        return orderService.listAllOrderQueue();
+        JSONArray jsonArray = new JSONArray();
+        List<Order> myQueue = orderService.listAllOrderQueue();
+        for (Order o:myQueue){
+
+            JSONObject jsonObj= new JSONObject();
+            jsonObj.put("order_type", o.getOrderType());
+            jsonObj.put("ticker", orderService.getTickerBySid(o.getSecurityId()));
+            jsonObj.put("quantity", o.getQuantity());
+            jsonObj.put("price", o.getExecutePrice());
+            jsonObj.put("status", o.getOrderStatus());
+            jsonArray.put(jsonObj);
+        }
+        return new ResponseEntity<String>(new JSONObject().put("order queue", jsonArray).toString(), HttpStatus.OK);
     }
 
     @PostMapping(value = "/addOrder", consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -1,6 +1,7 @@
 package org.finalproject.spring.boot.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
 
     @Column(name = "security_id")
     private int securityId;
@@ -103,6 +105,7 @@ public class Order {
 
 
     public String getOrderType() {
+
         return orderType.toString();
     }
     public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, OrderType orderType) {
