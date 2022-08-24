@@ -12,7 +12,7 @@ export class SecurityListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.securityService.findAll().subscribe(data => {
+    this.securityService.findAll().subscribe( (data:any) => {
       this.mySecurities = data;
     });
   }
