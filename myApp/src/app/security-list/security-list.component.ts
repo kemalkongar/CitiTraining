@@ -31,7 +31,12 @@ export class SecurityListComponent implements OnInit {
     // ];
 
     // needs to be replaced by:
-    this.securityService?.findAll();
+    this.securityService?.findAll().subscribe((data) => {
+      console.log(data);
+      this.mySecurities = data;
+  }, error => {
+    console.log('error');
+  });;
   //   .subscribe((data:any) => {
   //     this.mySecurities = data;
   //   });
