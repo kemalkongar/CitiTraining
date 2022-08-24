@@ -1,6 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Security } from '../security';
 import { SecurityService } from '../security.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -17,7 +19,10 @@ export class SecurityListComponent implements OnInit {
   // constructor(private securityService: SecurityService) {
   // }
   
-  constructor(){}
+    constructor(private http: HttpClient) {
+    this.securityService = new SecurityService(http);
+  }
+
   ngOnInit(): void {
     // dummy data for proof of concept
     // this.mySecurities = [
@@ -26,9 +31,17 @@ export class SecurityListComponent implements OnInit {
     // ];
 
     // needs to be replaced by:
-    this.securityService.findAll().subscribe((data:any) => {
-      this.mySecurities = data;
-    });
-  }
+    this.securityService?.findAll();
+  //   .subscribe((data:any) => {
+  //     this.mySecurities = data;
+  //   });
+  // }
 
-}
+//   console.log("theres");
+//   this.http.get('http://localhost:8080/api/securities/').subscribe((data) => {
+//     console.log(data);
+// }, error => {
+//   console.log('error');
+// });
+
+}}

@@ -7,6 +7,9 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { OrderQueueListComponent } from './order-queue-list/order-queue-list.component';
 import { HoldingsListComponent } from './holdings-list/holdings-list.component';
 import { PlotComponent } from './plot/plot.component';
+import { SecurityService } from './security.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +21,9 @@ import { PlotComponent } from './plot/plot.component';
     PlotComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
-  providers: [],
+  providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
