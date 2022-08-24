@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Order } from '../order';
+import { OrderQueue } from '../order-queue';
+import { OrderQueueService } from '../order-queue.service';
 
 @Component({
   selector: 'app-order-queue-list',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderQueueListComponent implements OnInit {
 
-  constructor() { }
+
+  myOrderQueue!: OrderQueue[];
+  orderQueueService:OrderQueueService;
+
 
   ngOnInit(): void {
+
   }
 
 }

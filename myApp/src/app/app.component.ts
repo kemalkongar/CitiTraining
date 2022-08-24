@@ -9,15 +9,11 @@ import { SecurityListComponent } from './security-list/security-list.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  tickers: Security[];
 
   title = 'my training project';
 
 
   constructor() {
-    this.tickers = [
-      new Security()
-    ];   
    }
 
 }

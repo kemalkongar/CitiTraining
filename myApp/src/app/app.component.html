@@ -8,10 +8,7 @@
 <section class="currentHoldings">
     <h3>Current Holdings</h3>
     <table class="holdingsTable">
-        <tr>
-            <td>Data 1</td>
-            <td>Data 2</td>
-        </tr>
+        <app-holdings-list></app-holdings-list>
     </table>
 </section>
 
@@ -22,22 +19,23 @@
 
 <div class="orderHistory">
     <h2>orderHistory</h2>
+    <app-order-list></app-order-list>
+
 </div>
 
 
 <div class="orderQueue">
     <h1>OrderQueue</h1>
+    <app-order-queue-list></app-order-queue-list>
 </div>
 
 
 
 <div class="searchTicker">
-
-    123456
+    <h1>Tickers</h1>
     <app-security-list></app-security-list>
 </div>
 
 <div class="placeOrder">
     <h1>Place Order</h1>
 </div>
-<!-- <router-outlet></router-outlet> -->
