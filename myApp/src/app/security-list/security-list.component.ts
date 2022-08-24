@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { Security } from '../security';
 import { SecurityService } from '../security.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
+// import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({

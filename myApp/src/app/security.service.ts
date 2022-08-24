@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import{ GlobalConstants } from './global-constants';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import { map } from 'rxjs/operators';
-import { timeout } from 'rxjs/operators';
+// import { map } from 'rxjs/operators';
+// import { timeout } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +21,8 @@ export class SecurityService {
   }
 
   public findAll():Observable<Security[]>{
-    return this.http?.get<Security[]>('http://localhost:8080/api/securities/');
-    console.log("returning from findall");
-
-    // return this.tmp.pipe(timeout(5000)).subscribe(result => {
-    //   console.log("theres");
-    // });
+    return this.http?.get<Security[]>(this.getAllUrl);
+    // return this.http?.get<Security[]>('http://localhost:8080/api/securities/');
   }
 
   // we don't ever save a security or a ticker

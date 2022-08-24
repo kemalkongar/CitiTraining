@@ -87,8 +87,12 @@ delimiter ;
 -- (4, "MSFT", "Microsoft", "NASDAQ", 291.32),
 -- (5, "GS", "Goldman Sachs", "NYSE", 353.74);
 
+-- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (1,'A','Agilent Technologies, Inc. Common Stock','nyse',128.88,132.58,131.95,133.55,133.90,132.77,142.29,139.97,137.62,133.94);
+-- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (2,'AA','Alcoa Inc. Common Stock','nyse',50.38,52.95,53.27,52.76,51.70,53.12,51.98,53.84,51.01,50.27);
+-- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (3,'AAC','AAC Holdings, Inc. Common Stock','nyse',9.88,9.88,9.88,9.88,9.89,9.89,9.89,9.87,9.88,9.87);
+-- INSERT INTO `securities` (`id`,`ticker`,`name`,`exchange`,`t0`,`tminus1`,`tminus2`,`tminus3`,`tminus4`,`tminus5`,`tminus6`,`tminus7`,`tminus8`,`tminus9`) VALUES (4,'AAN','Aaron\'s, Inc. Common Stock','nyse',13.93,14.31,14.55,14.60,14.50,15.00,14.60,14.45,14.03,13.76);
 
--- insert into Orders values 
+-- insert into Orders  values 
 -- (1, 1, 5, "SUCCESS", '2022-12-31', 170.15, '2022-08-12', "BUY"),
 -- (2, 1, 5, "SUCCESS", '2022-12-31', 172.5, '2022-08-12', "SELL"),
 -- (3, 1, 10, "SUCCESS", '2022-12-31', 171.15, '2022-08-17', "BUY"),
