@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Security } from '../security';
 import { SecurityService } from '../security.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './plot.component.html',
   styleUrls: ['./plot.component.css']
 })
-export class implements OnInit {
+export class PlotComponent implements OnInit {
   mySecurities!: Security[];
   securityService: SecurityService;
   
