@@ -1,47 +1,85 @@
-h4 {
-    text-align: center;
+html{
+    margin: 0;
+    padding:0;
+    border:0;
+    height:100%;
+    width:100%;
+    font-family: Trebuchet MS, sans-serif;
+    
+
+}
+.header{
+    font-weight:300;
+    font-size:large;
+    font-style:bold;
 }
 .welcome {
-    background-color : rgba(0, 217, 255, 0.185);
+    background-color :#ececea;
+    margin:0px;
+}
+
+
+.mainPage {
+    text-align: center;
+    height: auto;
+    width: 100%;
+    padding-top: 2%;
+    margin-bottom: 10%;
+}
+.leftBar{
+    float: left;
+    width: 50%;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.rightBar{
+    float: right;
+    width: 35%;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.placeOrder{
+    background-color : #8696a7;
+    height: 150px;
+    width: 95%;
+    margin-left: 50px;
+    border-radius: 25px;
+    
 }
 .currentHoldings{
-    background-color : rgba(125, 156, 165, 0.185);
-    border-style:solid;
-    float: left;
-    width: 49%;
-    text-align: center;
-
+    background-color: #c1cbd7;
+    min-height: 400px;
+    border-radius: 25px;
 }
 .holdingsTable{
     border: 1px solid rgb(0, 0, 0);
-    padding: 1rem;
-    text-align: center;
     width:100%;
 }
-.graph{
-    background-color : rgba(125, 156, 165, 0.185);
-    border-style:solid;
-    float: right;
-    width: 49%;
-    text-align: center;
-
-}
 .orderHistory{
-    background-color : rgba(0, 217, 255, 0.185);
-    border-style:solid;
+    background-color: #c1cbd7;
+    border-radius: 25px;
+    min-height: 400px;
+    margin-top: 50px;
 }
 .orderQueue{
-    background-color : rgba(0, 217, 255, 0.185);
-    border-style:solid;
+    background-color: #c1cbd7;
+    border-radius: 25px;
+    margin-top: 50px;
+    min-height: 250px;
 }
-
 .searchTicker{
-    background-color : rgba(0, 217, 255, 0.185);
-    border-style:solid;
-
+    background-color: #c1cbd7;
+    margin-top: 50px;
+    min-height: 200px;
+    border-radius: 25px;
 }
-.placeOrder{
-    background-color : rgba(0, 217, 255, 0.185);
-    padding: 2pt;
-    border-style:solid;
+.graph{
+    background-color: #c1cbd7;
+    height: 300px;
+    border-radius: 25px;
+
 }

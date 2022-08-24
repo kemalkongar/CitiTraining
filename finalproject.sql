@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS Orders(
   execute_price DECIMAL(8,2) NOT NULL,
   order_placed_time DATE NOT NULL,
   order_type ENUM('BUY', 'SELL'),
-
   CONSTRAINT securityId
     FOREIGN KEY (security_id)
     REFERENCES Securities (id)
