@@ -10,6 +10,10 @@ public class Holdings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int security;
+    @Column(name = "security_ticker")
+    private String securityTicker;
+    @Column(name = "security_name")
+    private String securityName;
     private int lot;
 
     @Column(name = "buy_price")
@@ -19,17 +23,28 @@ public class Holdings {
     public Holdings() {
     }
 
-    public Holdings(int security, int lot, double buyPrice) {
+    public Holdings(int security, String security_ticker, String security_name, int lot, double buyPrice) {
         this.security = security;
+        this.securityTicker = security_ticker;
+        this.securityName = security_name;
         this.lot = lot;
         this.buyPrice = buyPrice;
     }
 
-    public Holdings(int id, int security, int lot, double buyPrice) {
-        this.id = id;
-        this.security = security;
-        this.lot = lot;
-        this.buyPrice = buyPrice;
+    public String getSecurity_ticker() {
+        return securityTicker;
+    }
+
+    public void setSecurity_ticker(String security_ticker) {
+        this.securityTicker = security_ticker;
+    }
+
+    public String getSecurity_name() {
+        return securityName;
+    }
+
+    public void setSecurity_name(String security_name) {
+        this.securityName = security_name;
     }
 
     public int getId() {

@@ -31,13 +31,18 @@ public class HoldingsController {
     }
 
     @GetMapping("/security/{security}")
-    public List<Holdings> getHoldingsBySecurityId(@PathVariable Integer security) {
-        return holdingsService.getHoldingsBySecurityId(security);
+    public Holdings getHoldingsBySecurity(@PathVariable Integer security) {
+        return holdingsService.getHoldingsBySecurity(security);
     }
 
-    @GetMapping("/lot/{lot}")
-    public List<Holdings>  getHoldingsByLot(@PathVariable Integer lot) {
-        return holdingsService.getHoldingsByLot(lot);
+    @GetMapping("/security/ticker/{security_ticker}")
+    public Holdings getHoldingsBySecurityTicker(@PathVariable String security_ticker) {
+        return holdingsService.getHoldingsBySecurityTicker(security_ticker);
+    }
+
+    @GetMapping("/security/name/{security_name}")
+    public Holdings getHoldingsBySecurityName(@PathVariable String security_name) {
+        return holdingsService.getHoldingsBySecurityName(security_name);
     }
 
     @GetMapping("/buyPrice/{min}/{max}")
@@ -45,7 +50,7 @@ public class HoldingsController {
         return holdingsService.findByBuyPriceBetween(min,max);
     }
 
-    @PostMapping("/addHoldings")
+    @PostMapping(value = "/addHoldings", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addHoldings(@RequestBody Holdings security) {
         holdingsService.saveHoldings(security);
     }
