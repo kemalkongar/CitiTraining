@@ -1,6 +1,9 @@
 export class Security {
-  id: Number;
-  ticker:string;
-  name: string;
-  price: Number;
-}
+
+
+constructor(
+  public id: number,
+  public ticker: string,
+  public name: string,
+  public price: number) {
+}}

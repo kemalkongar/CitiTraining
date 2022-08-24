@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Holdings } from '../holdings';
+import { HoldingsService } from '../holdings.service';
 
 @Component({
   selector: 'app-holdings-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoldingsListComponent implements OnInit {
 
-  constructor() { }
+  myHoldings!: Holdings[];
+  holdingService: HoldingsService;
+
 
   ngOnInit(): void {
+
   }
 
 }
