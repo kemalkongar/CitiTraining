@@ -17,3 +17,6 @@ http://localhost:8080/api/orders/addOrder, and input JSON text:
 ```
 You will see SUCCESS status in the database because the sell price 127 is lower than current price 171.68, and the order is immediately executed after placed.  
 Changing executePrice to 200 results in a PENDING status, and the order will be added to sellPendingOrders queue.
+# angular
+go to CitiTraining/myApp, if you haven't done already, do ```npm install```, then run ```ng serve``` to start the application. If there's dependency issue, run ```rm -r node_module```, then 
+```rm package-lock.json```,then ```npm install```.
