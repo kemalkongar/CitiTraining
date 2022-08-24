@@ -108,13 +108,13 @@ public class Order {
     public String getOrderType() {
         return orderType.toString();
     }
-    public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, OrderStatus orderType) {
+    public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, OrderType orderType) {
         this.securityId = security;
         this.quantity = quantity;
         this.executeBy = executeBy;
         this.executePrice = executePrice;
         this.orderPlacedTime = orderPlacedTime;
-        this.orderType = OrderType.SELL;
+        this.orderType = orderType;
     }
 
     public Order(int id){
