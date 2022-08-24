@@ -1,11 +1,18 @@
-html{
+.html{
     margin: 0;
     padding:0;
     border:0;
     height:100%;
     width:100%;
     font-family: Trebuchet MS, sans-serif;
-
+    background-color:black;
+    background-image:
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 .header{
     font-weight:300;
@@ -14,14 +21,19 @@ html{
 }
 .welcome {
     background-color :#ececea;
+    /* box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px; */
     margin:0px;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;}
+}
 .mainPage {
     text-align: center;
     height: auto;
     width: 100%;
     padding-top: 2%;
     margin-bottom: 10%;
+    /* background-color: #dadaeb;
+    background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+    background: radial-gradient(circle, transparent 20%, #dadaeb 20%, #dadaeb 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #dadaeb 20%, #dadaeb 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#a1a4da 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #a1a4da 0.8px, #dadaeb 0.8px) -0.4px 0;
+    opacity: 0.8; */
 }
 .leftBar{
     float: left;
@@ -29,6 +41,7 @@ html{
     margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
+    
 }
 .rightBar{
     float: right;
@@ -40,15 +53,13 @@ html{
 
 .placeOrder {
     /* Modify size here: */
-    --size: 92%;
-    --padding: 5px;
     margin-left:50px;
-
+    margin-right:50px;
     position: relative;
     width: calc(var(--size) - var(--padding));
     height: calc(var(--size) / 2);
     background-color : #8696a7;
-    padding: var(--padding);
+    height: 200px;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 } 
@@ -62,7 +73,50 @@ html{
     height: 16px;
     width: 16px;
 }
+.button-1 {
+  align-items:center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 10px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  float:right;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin-right:3%;
+  margin-top:60px;
+}
 
+.button-1:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+.button-1:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-1:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
 .currentHoldings{
 background-color: #c1cbd7;
 min-height: 400px;
