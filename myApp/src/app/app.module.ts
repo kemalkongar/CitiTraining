@@ -9,6 +9,7 @@ import { HoldingsListComponent } from './holdings-list/holdings-list.component';
 import { PlotComponent } from './plot/plot.component';
 import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, Ng2SearchPipeModule,
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]

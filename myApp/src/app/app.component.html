@@ -53,11 +53,33 @@
             </div>
 
             <div class="searchTicker">
-                <h2>Search Ticker</h2>
-                <button class="button-1" role="button">Search</button>
+                <h2>Search Security</h2>
 
+                <div class="search">
+                    <input type="text" name="search" [(ngModel)]="searchText" placeholder="search by ticker"> 
+                </div>
+
+                <table class="securityTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ticker</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let s of mySecurities | filter: searchText">
+                            <td>{{s.id}}</td>
+                            <td>{{s.ticker}}</td>
+                    </tbody>
+
+    
+                  
                 <app-security-list></app-security-list>
             </div>
+
+           
+                
 
             <div class="orderQueue">
                 <h2>Order Queue</h2>

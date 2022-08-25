@@ -31,14 +31,14 @@ export class PlotComponent implements OnInit {
   @ViewChild("chart", { static: true } )
   private chart: IgxCategoryChartComponent
 
-  selectSecurity(id:number): void {
-    this.securityService?.findByID(id).subscribe((data) => {
-      console.log(data);
-      this.oneSecurity = data;
-  }, error => {
-    console.log('error');
-  });
-}
+  // selectSecurity(id:number): void {
+  //   this.securityService?.findByID(id).subscribe((data) => {
+  //     console.log(data);
+  //     this.oneSecurity = data;
+  // }, error => {
+  //   console.log('error');
+  // });
+
 }
 
 
