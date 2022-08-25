@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../order.service';
 import { Order } from '../order';
-
+import{ GlobalConstants } from '../global-constants';
+import {OrderListComponent} from '../order-list/order-list.component';
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
@@ -26,8 +27,19 @@ export class OrderFormComponent implements OnInit {
   }
 
   refreshOrdersAndQueueTable() {
-    this.router.navigate([this.orderService.getAllUrl]);
-    this.router.navigate([this.orderService.getQueueUrl]);
+    window.location.reload();
+    // console.log(this.router.navigate(["OrderListComponent"]));
+    // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    // this.router.navigate(["/"+this.orderService.requestMapping]));
+    // this.router.navigate(["///"+this.orderService.requestMapping]);
+
+    // this.router.navigate(["/"+this.orderService.requestMapping]));
+
+    // this.router.navigate(["//"+this.orderService.requestMapping]);
+    // this.router.navigate(["//"+this.orderService.requestMapping+"queue/"]);
+    // this.router.navigateByUrl("localhost:4200/");
+
+    // this.router.navigate([]);
 
   }
 

@@ -7,9 +7,10 @@ import { HoldingsListComponent } from './holdings-list/holdings-list.component';
 
 import {AppRoutingModule} from './app-routing'
 const routes: Routes = [
-  { path: '/api/securities/', component: SecurityListComponent},
-  {path: '/api/orders/', component: OrderListComponent},
+  { path: 'api/securities/', component: SecurityListComponent},
   {path: 'api/orders/queue/', component:OrderQueueListComponent},
+
+  {path: 'api/orders/', component: OrderListComponent},
   {path: 'api/holdings/', component: HoldingsListComponent}
 ];
 
