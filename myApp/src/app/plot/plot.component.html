@@ -1,25 +1,25 @@
-
-<div>
-  <div>
-    <div class="search-ticker">
-      <input type="text" [(ngModel)]="searchText">
-    </div>
-    <table class="securityTable">
-      <thead>
-          <tr>
-              <th>Ticker</th>
-              <th>Name</th>
-              <th>Price</th>
-          </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let s of mySecurities | filter: searchText">
-        <td>{{s.ticker}}</td>
-        <td>{{s.name}}</td>
-        <td>{{s.t0}}</td> 
-    </tbody>
-</table>
-
-
+<div class="lineChart">
+  <div class="legend-title">
+    Security Price in 10 Days
 </div>
+<!-- <div class="legend">
+    <igx-legend
+    orientation="Horizontal"
+    name="Legend"
+    #legend>
+    </igx-legend>
 </div>
+<div class="container fill"> -->
+  <!-- where to get dataSource???? -->
+  <!-- <igx-category-chart [dataSource]="oneSecurity" 
+  width="800px"
+  height="500px"
+  yAxisMinimumValue="0">
+</igx-category-chart>
+</div> -->
+
+<div *ngFor="let s of oneSecurity">
+  {{s.t0 }}
+</div>
+
+ 

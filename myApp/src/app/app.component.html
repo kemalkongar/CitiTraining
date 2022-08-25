@@ -31,7 +31,11 @@
             <section class="currentHoldings">
                 <h2>Current Holdings</h2>
                 <table class="holdingsTable">
+                    <!-- <tr>
+                        <td> -->
                             <app-holdings-list></app-holdings-list>
+                        <!-- </td>
+                    </tr> -->
                 </table>
             </section>
 
@@ -50,6 +54,29 @@
 
             <div class="searchTicker">
                 <h2>Search Security</h2>
+                 <div class="search">
+                    search bar
+                    <!-- <input type="text" name="search" [(ngModel)]="searchText" placeholder="search by ticker">  --> 
+                    </div>
+
+                <table class="securityTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ticker</th>
+                        </tr>
+                </thead>
+
+                <!-- <tbody>
+                        <tr *ngFor="let s of mySecurities | filter: searchText">
+                            <td>{{s.id}}</td>
+                            <td>{{s.ticker}}</td>
+                </tbody> -->
+
+                <app-security-list></app-security-list>
+            
+            </table>
+
             </div>
 
             <div class="orderQueue">

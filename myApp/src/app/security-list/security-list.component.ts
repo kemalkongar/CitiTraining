@@ -52,6 +52,11 @@ export class SecurityListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // dummy data for proof of concept
+    // this.mySecurities = [
+    //   new Security(3,'a','apple',10),
+    //   new Security(9,'b','Citi',140),
+    // ];
 
     this.securityService?.findAll().subscribe((data) => {
       this.mySecurities = data;

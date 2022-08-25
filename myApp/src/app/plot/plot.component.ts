@@ -10,7 +10,6 @@ import { IgxLegendComponent, IgxCategoryChartComponent } from 'igniteui-angular-
   styleUrls: ['./plot.component.css']
 })
 export class PlotComponent implements OnInit {
-  searchText: any;
   mySecurities!: Security[];
   oneSecurity!:Security [];
   securityService: SecurityService;
