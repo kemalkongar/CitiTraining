@@ -26,7 +26,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/orders")
 @ComponentScan("org.finalproject.spring.boot")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class OrderController {
 
     @Autowired
