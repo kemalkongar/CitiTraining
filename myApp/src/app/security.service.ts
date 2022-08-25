@@ -29,7 +29,7 @@ export class SecurityService {
 
   public findByID(id: number):Observable<Security>{
     let getByIDUrl:string = this.getAllUrl+id;
-    return this.http?.get<Security>('http://localhost:8080/api/securities/1');
+    return this.http?.get<Security>('http://miss2trainingproject-miss2trainingproject.openshift82.conygre.com/api/securities/1');
     //return this.http?.get<Security[]>(getByIDUrl);
   }
   // we don't ever save a security or a ticker

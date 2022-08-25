@@ -162,12 +162,12 @@ overflow: scroll;
 }
 
 .orderQueue{
-    background-color: #c1cbd7;
-    border-radius: 25px;
-    margin-top: 50px;
-    min-height: 250px;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-    overflow: scroll;
+  background-color: #c1cbd7;
+  border-radius: 25px;
+  height: 300px;
+  margin-top: 50px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  overflow: scroll;
 }
 .searchTicker{
     background-color: #8696a7;
