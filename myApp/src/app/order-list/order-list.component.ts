@@ -27,8 +27,8 @@ export class OrderListComponent implements OnInit {
         editable: false,
         addable: false,
       },
-      id: {
-        title: 'Id',
+      securityName: {
+        title: 'Ticker',
         editable: false,
         addable: false
       },
@@ -59,6 +59,7 @@ export class OrderListComponent implements OnInit {
   ngOnInit(): void {
       this.orderService?.findAll().subscribe((data) => {
         this.myOrders = data;
+        console.log(this.myOrders);
     }, error => {
       console.log('error');
     });

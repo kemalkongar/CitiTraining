@@ -58,7 +58,7 @@ public class OrderService {
         } else { // price match
             this.executeOrder(order);
         }
-        String securityName = orderRepository.getSecurityNameBySecurityId(order.getSecurityId());
+        String securityName = orderRepository.getTickerBySecurityId(order.getSecurityId());
         order.setSecurityName(securityName);
         orderRepository.save(order);
     }
