@@ -16,6 +16,10 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from "@angular/router/testing";
+import { IgxLegendModule, IgxCategoryChartModule } from 'igniteui-angular-charts';
+import { CommonModule } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -28,10 +32,18 @@ import { RouterTestingModule } from "@angular/router/testing";
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, Ng2SearchPipeModule,
-    Ng2SmartTableModule, FormsModule, ReactiveFormsModule,
-    RouterTestingModule
-
+    ReactiveFormsModule,
+    RouterTestingModule,
+    BrowserModule, 
+    BrowserAnimationsModule,
+    CommonModule,
+    IgxLegendModule,
+    IgxCategoryChartModule,
+    HttpClientModule, 
+    Ng2SearchPipeModule, 
+    FormsModule,
+    Ng2SmartTableModule,
+    NgChartsModule
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]

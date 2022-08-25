@@ -1,6 +1,21 @@
-<div >
-<div>
-    <div class="search-ticker">
+<div class="lineChart">
+    <div class="legend-title">
+        10 Days Price
+    </div>
+    <div class="chart-wrapper">
+      <canvas baseChart 
+          [datasets]="lineChartData" 
+          [labels]="lineChartLabels" 
+          [options]="lineChartOptions"
+          [colors]="lineChartColors" 
+          [legend]="lineChartLegend" 
+          [chartType]="lineChartType" 
+          [plugins]="lineChartPlugins">
+      </canvas>
+  </div>
+</div>
+
+<div class="search-ticker">
       <input style="width:250px" type="text" [(ngModel)]="searchText" placeholder="Search by Ticker, Name or Price">
 
 
@@ -20,5 +35,4 @@
         </tr>
     </tbody>
 </table>
-</div>
 </div>
