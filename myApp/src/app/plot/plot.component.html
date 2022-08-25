@@ -2,7 +2,7 @@
 <div>
     <div class="search-ticker">
       <input style="width:250px" type="text" [(ngModel)]="searchText" placeholder="Search by Ticker, Name or Price">
-    </div>
+
 
     <table class="securityTable" id="table-1">
       <thead>
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let s of mySecurities | filter: searchText">
-        <td>{{s.ticker}}</td>
+        <td><button class="button-ticker">{{s.ticker}}</button></td>
         <td>{{s.name}}</td>
         <td>{{s.t0}}</td> 
         </tr>
