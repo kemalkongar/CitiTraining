@@ -11,6 +11,7 @@ import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({

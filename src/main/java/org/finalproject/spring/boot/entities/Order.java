@@ -16,7 +16,7 @@ public class Order {
     private int id;
 
     @Column(name = "security_id")
-    private int securityId;
+    private Integer securityId;
 
     @Column(name = "quantity")
     private int quantity;
@@ -50,7 +50,7 @@ public class Order {
         return id;
     }
 
-    public int getSecurityId() {
+    public Integer getSecurityId() {
         return securityId;
     }
 
@@ -59,6 +59,9 @@ public class Order {
     }
     public String getSecurityName() {
         return securityName;
+    }
+    public void setSecurityId(Integer i) {
+        this.securityId = i;
     }
 
     public void setQuantity(int quantity) {

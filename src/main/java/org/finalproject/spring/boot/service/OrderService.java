@@ -45,6 +45,9 @@ public class OrderService {
 
     public void placeOrder(Order order) {
 
+        if (order.getSecurityId()==null && order.getSecurityName() != null){
+            order.setSecurityId(orderRepository.getSecurityIdeByTicker(order.getSecurityName()));
+        }
         order.setOrderStatus(Order.OrderStatus.PENDING);
 
         if (order.getOrderType().equals("BUY") &&
