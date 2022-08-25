@@ -4,6 +4,8 @@ import org.finalproject.spring.boot.entities.Order;
 import org.finalproject.spring.boot.repo.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -44,6 +46,9 @@ public class OrderService {
     }
 
     public void placeOrder(Order order) {
+        if (order.getOrderPlacedTime()==null){
+            order.setOrderPlacedTime();
+        }
 
         if (order.getSecurityId()==null && order.getSecurityName() != null){
             order.setSecurityId(orderRepository.getSecurityIdeByTicker(order.getSecurityName()));

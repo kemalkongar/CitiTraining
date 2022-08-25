@@ -63,6 +63,9 @@ public class Order {
     public void setSecurityId(Integer i) {
         this.securityId = i;
     }
+    public void setOrderPlacedTime() {
+        this.orderPlacedTime = LocalDate.now();
+    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
