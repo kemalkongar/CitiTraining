@@ -55,9 +55,9 @@
             <div class="searchTicker">
                 <h2>Search Security</h2>
 
-                <div class="search">
+                <!-- <div class="search">
                     <input type="text" name="search" [(ngModel)]="searchText" placeholder="search by ticker"> 
-                </div>
+                </div> -->
 
                 <table class="securityTable">
                     <thead>
@@ -67,16 +67,16 @@
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <!-- <tbody>
                         <tr *ngFor="let s of mySecurities | filter: searchText">
                             <td>{{s.id}}</td>
                             <td>{{s.ticker}}</td>
-                    </tbody>
+                    </tbody> -->
 
     
                   
                 <app-security-list></app-security-list>
-            </div>
+            
 
            
                 
@@ -85,7 +85,3 @@
                 <h2>Order Queue</h2>
                 <app-order-queue-list></app-order-queue-list>
             </div>
-        </div>
-    </div>
-    </body>
-</html>
