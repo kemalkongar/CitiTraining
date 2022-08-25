@@ -181,8 +181,9 @@ overflow: scroll;
 
 .graph{
     background-color: #c1cbd7;
-    height: 300px;
+    height: 400px;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    overflow: scroll;
 
 }

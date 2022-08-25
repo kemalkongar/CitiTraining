@@ -11,6 +11,7 @@ import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, Ng2SearchPipeModule, Ng2SmartTableModule
+    BrowserModule, HttpClientModule, Ng2SearchPipeModule, FormsModule,Ng2SmartTableModule
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]
