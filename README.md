@@ -21,3 +21,5 @@ Changing executePrice to 200 results in a PENDING status, and the order will be 
 First, start the spring boot application in localhost port 8080, this requires you to revert application.properties to the previous version.(I will modify this instruction once angular works with docker backend).  
 Then cd into CitiTraining/myApp. If you haven't done already, do ```npm install```. Then run ```ng serve``` to start the application. If there's dependency issues, run ```rm -r node_module```, then 
 ```rm package-lock.json```,then ```npm install```.
+
+You might further need to run `export NODE_OPTIONS=--openssl-legacy-provider` for the app to work for now. 
