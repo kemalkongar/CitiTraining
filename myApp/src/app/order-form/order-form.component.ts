@@ -5,8 +5,8 @@ import { Order } from '../order';
 
 @Component({
   selector: 'app-order-form',
-  templateUrl: './order-form/order-form.component.html',
-  styleUrls: ['./order-form/order-form.component.css']
+  templateUrl: './order-form.component.html',
+  styleUrls: ['./order-form.component.css']
 })
 export class OrderFormComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class OrderFormComponent implements OnInit {
     private route: ActivatedRoute, 
       private router: Router, 
         private orderService: OrderService) {
-    // this.order = new Order();
+    this.order = new Order();
   }
   ngOnInit(): void {
   }

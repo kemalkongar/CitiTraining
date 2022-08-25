@@ -6,13 +6,16 @@ import { SecurityListComponent } from './security-list/security-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderQueueListComponent } from './order-queue-list/order-queue-list.component';
 import { HoldingsListComponent } from './holdings-list/holdings-list.component';
+import { OrderFormComponent } from './order-form/order-form.component';
+
 import { PlotComponent } from './plot/plot.component';
 import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from "@angular/router/testing";
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { FormsModule } from '@angular/forms';
     OrderListComponent,
     OrderQueueListComponent,
     HoldingsListComponent,
+    OrderFormComponent,
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, Ng2SearchPipeModule, FormsModule,Ng2SmartTableModule
+    BrowserModule, HttpClientModule, Ng2SearchPipeModule,
+    Ng2SmartTableModule, FormsModule, ReactiveFormsModule,
+    RouterTestingModule
+
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]

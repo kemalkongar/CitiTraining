@@ -10,11 +10,11 @@ import { Order } from './order';
 })
 export class OrderService {
 
-  private getAllUrl: string; 
-  private addUrl: string;
-  private getQueueUrl: string;
+  public getAllUrl: string; 
+  public addUrl: string;
+  public getQueueUrl: string;
 
-  private requestMapping='api/orders/';
+  public requestMapping='api/orders/';
 
   constructor(private http: HttpClient) {
     this.getAllUrl = GlobalConstants.baseURL+this.requestMapping;  
