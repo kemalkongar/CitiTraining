@@ -9,7 +9,8 @@ import { HoldingsListComponent } from './holdings-list/holdings-list.component';
 import { PlotComponent } from './plot/plot.component';
 import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, Ng2SearchPipeModule,
+    BrowserModule, HttpClientModule, Ng2SearchPipeModule, Ng2SmartTableModule
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]
