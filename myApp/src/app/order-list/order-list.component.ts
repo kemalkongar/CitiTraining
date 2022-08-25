@@ -27,8 +27,8 @@ export class OrderListComponent implements OnInit {
         editable: false,
         addable: false,
       },
-      id: {
-        title: 'Id',
+      securityName: {
+        title: 'Ticker',
         editable: false,
         addable: false
       },

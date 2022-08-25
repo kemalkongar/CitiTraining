@@ -5,7 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-order-queue-list',
-  templateUrl: './order-queue-list.component.html',
+  template: `
+  <ng2-smart-table [settings]="settings" [source]="myOrderQueue"></ng2-smart-table>
+  `,
   styleUrls: ['./order-queue-list.component.css']
 })
 export class OrderQueueListComponent implements OnInit {
@@ -13,6 +15,44 @@ export class OrderQueueListComponent implements OnInit {
 
   myOrderQueue!: Order[];
   orderService:OrderService;
+
+  settings = {
+    actions: {
+      delete: false,
+      add: false,
+      edit: false,
+    },
+    columns: {
+      orderType: {
+        title: 'Order Type',
+        editable: false,
+        addable: false,
+      },
+      securityName: {
+        title: 'Ticker',
+        editable: false,
+        addable: false
+      },
+      executePrice: {
+        title: 'Execute Price',
+        editable: false,
+        addable: false
+      },
+      quantity: {
+        title: "Quantity",
+        editable: false,
+        addable: false
+      },
+      orderStatus: {
+        title: "Status",
+        editable: false,
+        addable: false
+      }
+    },
+  };
+
+
+
   constructor(private http: HttpClient) {
     this.orderService = new OrderService(http);
   }
