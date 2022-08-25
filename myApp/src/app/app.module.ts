@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PlotComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, Ng2SearchPipeModule, Ng2SmartTableModule, NgbModule
+    BrowserModule, HttpClientModule, Ng2SearchPipeModule, FormsModule,Ng2SmartTableModule
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]
