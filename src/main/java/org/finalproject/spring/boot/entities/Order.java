@@ -11,12 +11,9 @@ import java.util.*;
 @Entity
 @Table(name = "Orders")
 public class Order {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
 
     @Column(name = "security_id")
     private int securityId;
@@ -43,6 +40,9 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderType orderType;
 
+    @Column(name = "security_name")
+    private String securityName;
+
     public static PriorityQueue<Order> pendingBuyOrders = new PriorityQueue<Order>( new BuyOrderComparator());
     public static PriorityQueue<Order> pendingSellOrders = new PriorityQueue<Order>( new SellOrderComparator());
 
@@ -57,9 +57,15 @@ public class Order {
     public int getQuantity() {
         return quantity;
     }
+    public String getSecurityName() {
+        return securityName;
+    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+    public void setSecurityName(String name) {
+        this.securityName = name;
     }
 
     public LocalDate getExecuteBy() {
@@ -105,11 +111,12 @@ public class Order {
 
 
     public String getOrderType() {
-
         return orderType.toString();
     }
-    public Order(int security, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, OrderType orderType) {
+
+    public Order(int security, String securityName, int quantity, LocalDate executeBy, double executePrice, LocalDate orderPlacedTime, OrderType orderType) {
         this.securityId = security;
+        this.securityName = securityName;
         this.quantity = quantity;
         this.executeBy = executeBy;
         this.executePrice = executePrice;

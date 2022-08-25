@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Securities(
 CREATE TABLE IF NOT EXISTS Orders(
   id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
   security_id INT NOT NULL,
+  security_name VARCHAR(300),
   quantity INT NOT NULL,
   order_status ENUM('SUCCESS', 'FAILED', 'PENDING'),
   execute_by DATE NOT NULL,

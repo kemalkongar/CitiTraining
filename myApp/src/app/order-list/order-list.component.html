@@ -1,1 +1,25 @@
-<p>order-list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Security</th>
+            <th scope="col">quantity</th>
+            <th scope="col">execute price</th>
+            <th scope="col">status</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of myOrders">
+            <td>{{ o.orderType }}</td>
+            <td>{{ o.securityName }}</td>
+            <td>{{ o.quantity }}</td>
+            <td>{{ o.executePrice }}</td>
+            <td>{{ o.orderStatus }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -10,7 +10,7 @@ import { Holdings } from './holdings';
 export class HoldingsService {
 
   private getAllUrl: string; 
-  private requestMapping='api/holdings';
+  private requestMapping='api/holdings/';
   
   constructor(private http: HttpClient) {
     this.getAllUrl = GlobalConstants.baseURL+this.requestMapping;  

@@ -17,8 +17,8 @@ public class OrderService {
     @Autowired
     private SecurityService securityService;
 
-    public List<Object> listAllOrders() {
-        return orderRepository.findAllOrdersWithSecurityName();
+    public List<Order> listAllOrders() {
+        return orderRepository.findAll();
     }
 
     public List<Order> listAllOrderQueue() {
@@ -44,6 +44,7 @@ public class OrderService {
     }
 
     public void placeOrder(Order order) {
+
         order.setOrderStatus(Order.OrderStatus.PENDING);
 
         if (order.getOrderType().equals("BUY") &&
@@ -57,6 +58,8 @@ public class OrderService {
         } else { // price match
             this.executeOrder(order);
         }
+        String securityName = orderRepository.getSecurityNameBySecurityId(order.getSecurityId());
+        order.setSecurityName(securityName);
         orderRepository.save(order);
     }
 

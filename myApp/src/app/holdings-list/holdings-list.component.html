@@ -1,1 +1,20 @@
-<p>holdings-list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">security ticker</th>
+            <th scope="col">lot</th>
+            <th scope="col">average price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of myHoldings">
+            <td>{{ h.security_ticker }}</td>
+            <td>{{ h.lot }}</td>
+            <td>{{ h.buyPrice }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderQueue } from '../order-queue';
-import { OrderQueueService } from '../order-queue.service';
+import { Order } from '../order';
+import { OrderService } from '../order.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -11,13 +11,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class OrderQueueListComponent implements OnInit {
 
 
-  myOrderQueue!: OrderQueue[];
-  orderQueueService:OrderQueueService;
+  myOrderQueue!: Order[];
+  orderService:OrderService;
   constructor(private http: HttpClient) {
-    this.orderQueueService = new OrderQueueService(http);
+    this.orderService = new OrderService(http);
   }
 
   ngOnInit(): void {
+    this.orderService?.findQueueAll().subscribe((data:any) => {
+      this.myOrderQueue = data;
+  }, (error:any) => {
+    console.log('error');
+  });
 
   }
 

@@ -1,1 +1,24 @@
-<p>order-queue-list works!</p>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">type</th>
+            <th scope="col">ticker</th>
+            <th scope="col">quantity</th>
+            <th scope="col">ask/bid price</th>
+            <th scope="col">status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of myOrderQueue">
+            <td>{{ q.orderType }}</td>
+            <td>{{ q.securityName }}</td>
+            <td>{{ q.quantity }}</td>
+            <td>{{ q.executePrice }}</td>
+            <td>{{ q.orderStatus }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

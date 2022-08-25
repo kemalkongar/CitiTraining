@@ -26,14 +26,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/orders")
 @ComponentScan("org.finalproject.spring.boot")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderController {
 
     @Autowired
     OrderService orderService;
 
     @GetMapping("/")
-    public List<Object> list() {
+    public List<Order> list() {
+        List<Order> res = orderService.listAllOrders();
         return orderService.listAllOrders();
     }
 
@@ -46,23 +47,27 @@ public class OrderController {
     public List<Order> getOrderBySecurity(@PathVariable Integer security) {
         return orderService.getOrderBySecurity(security);
     }
-
     @GetMapping("/queue")
-    public ResponseEntity<java.lang.String> getOrderQueue() {
-        JSONArray jsonArray = new JSONArray();
-        List<Order> myQueue = orderService.listAllOrderQueue();
-        for (Order o:myQueue){
-
-            JSONObject jsonObj= new JSONObject();
-            jsonObj.put("order_type", o.getOrderType());
-            jsonObj.put("ticker", orderService.getTickerBySid(o.getSecurityId()));
-            jsonObj.put("quantity", o.getQuantity());
-            jsonObj.put("price", o.getExecutePrice());
-            jsonObj.put("status", o.getOrderStatus());
-            jsonArray.put(jsonObj);
-        }
-        return new ResponseEntity<String>(new JSONObject().put("order queue", jsonArray).toString(), HttpStatus.OK);
+    public List<Order> getOrderQueue() {
+        return orderService.listAllOrderQueue();
     }
+
+//    @GetMapping("/queue")
+//    public ResponseEntity<java.lang.String> getOrderQueue() {
+//        JSONArray jsonArray = new JSONArray();
+//        List<Order> myQueue = orderService.listAllOrderQueue();
+//        for (Order o:myQueue){
+//
+//            JSONObject jsonObj= new JSONObject();
+//            jsonObj.put("order_type", o.getOrderType());
+//            jsonObj.put("ticker", orderService.getTickerBySid(o.getSecurityId()));
+//            jsonObj.put("quantity", o.getQuantity());
+//            jsonObj.put("price", o.getExecutePrice());
+//            jsonObj.put("status", o.getOrderStatus());
+//            jsonArray.put(jsonObj);
+//        }
+//        return new ResponseEntity<String>(new JSONObject().put("order queue", jsonArray).toString(), HttpStatus.OK);
+//    }
 
     @PostMapping(value = "/addOrder", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addOrder(@RequestBody Order order) {

@@ -12,17 +12,22 @@ export class OrderService {
 
   private getAllUrl: string; 
   private addUrl: string;
+  private getQueueUrl: string;
+
   private requestMapping='api/orders/';
-  
+
   constructor(private http: HttpClient) {
     this.getAllUrl = GlobalConstants.baseURL+this.requestMapping;  
+    this.getQueueUrl = GlobalConstants.baseURL+this.requestMapping+"queue/";  
     this.addUrl = GlobalConstants.baseURL+this.requestMapping+"/addOrder";
   }
 
   public findAll():Observable<Order[]>{
     return this.http?.get<Order[]>(this.getAllUrl);
   }
-
+  public findQueueAll():Observable<Order[]>{
+    return this.http?.get<Order[]>(this.getQueueUrl);
+  }
   public save(o: Order) {
     return this.http.post<Order>(this.addUrl, o);
   }

@@ -9,11 +9,15 @@ public class Holdings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "security")
     private int security;
+
     @Column(name = "security_ticker")
     private String securityTicker;
     @Column(name = "security_name")
     private String securityName;
+    @Column(name = "lot")
     private int lot;
 
     @Column(name = "buy_price")

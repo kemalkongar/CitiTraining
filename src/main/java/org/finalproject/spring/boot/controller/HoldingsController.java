@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/holdings")
 @ComponentScan("org.finalproject.spring.boot")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class HoldingsController {
 
     @Autowired

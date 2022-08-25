@@ -20,7 +20,6 @@ export class PlotComponent implements OnInit {
   ngOnInit(): void {
 
     this.securityService?.findAll().subscribe((data) => {
-      console.log(data);
       this.mySecurities = data;
   }, error => {
     console.log('error');
