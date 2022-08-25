@@ -7,20 +7,46 @@
             class="form-control" 
             id="orderType" 
             name="orderType" 
-            placeholder="Enter your orderType"
+            placeholder="BUY or SELL"
             required #name="ngModel">
         </div>
-        <!-- <div [hidden]="!name.pristine" class="alert alert-danger">Type is required</div> -->
         <div class="form-group">
           <label for="email">Ticker</label>
           <input type="text" [(ngModel)]="order!.securityName" 
             class="form-control" 
             id="securityName" 
             name="securityName" 
-            placeholder="Enter your security Name"
+            placeholder="e.g. C"
             required #email="ngModel">
-          <!-- <div [hidden]="!email.pristine" class="alert alert-danger"></div> -->
         </div>
+        <div class="form-group">
+          <label for="email">quantity</label>
+          <input type="text" [(ngModel)]="order!.quantity" 
+            class="form-control" 
+            id="quantity" 
+            name="quantity" 
+            placeholder="e.g. 10"
+            required #email="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="email">Expire Date</label>
+          <input type="text" [(ngModel)]="order!.executeBy" 
+            class="form-control" 
+            id="executeBy" 
+            name="executeBy" 
+            placeholder="yyyy-MM-dd"
+            required #email="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="email">Execute Price</label>
+          <input type="text" [(ngModel)]="order!.executePrice" 
+            class="form-control" 
+            id="executePrice" 
+            name="executePrice" 
+            placeholder="bid price for BUY order, ask price for SELL order"
+            required #email="ngModel">
+        </div>
+
         <button type="submit" [disabled]="!userForm.form.valid" 
           class="btn btn-info">Submit</button>
       </form>

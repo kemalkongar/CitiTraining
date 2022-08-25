@@ -19,7 +19,7 @@ export class OrderService {
   constructor(private http: HttpClient) {
     this.getAllUrl = GlobalConstants.baseURL+this.requestMapping;  
     this.getQueueUrl = GlobalConstants.baseURL+this.requestMapping+"queue/";  
-    this.addUrl = GlobalConstants.baseURL+this.requestMapping+"/addOrder";
+    this.addUrl = GlobalConstants.baseURL+this.requestMapping+"addOrder/";
   }
 
   public findAll():Observable<Order[]>{
