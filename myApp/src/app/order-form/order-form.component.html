@@ -1,7 +1,7 @@
 <div class="card-body">
   <form (ngSubmit)="onSubmit()" #userForm="ngForm">
     <div class="form-group">
-      <label for="name">Type</label>
+      <label for="name">Order Type</label>
       <input type="text" [(ngModel)]="order!.orderType" 
         class="form-control" 
         id="orderType" 
@@ -19,7 +19,7 @@
         required #email="ngModel">
     </div>
     <div class="form-group">
-      <label for="email">quantity</label>
+      <label for="email">Quantity</label>
       <input type="text" [(ngModel)]="order!.quantity" 
         class="form-control" 
         id="quantity" 
@@ -28,7 +28,7 @@
         required #email="ngModel">
     </div>
     <div class="form-group">
-      <label for="email">Expire Date</label>
+      <label for="email">Expiry Date</label>
       <input type="text" [(ngModel)]="order!.executeBy" 
         class="form-control" 
         id="executeBy" 
