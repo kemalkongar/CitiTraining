@@ -1,7 +1,10 @@
 package org.finalproject.spring.boot.service;
 
+import org.finalproject.spring.boot.entities.Holdings;
 import org.finalproject.spring.boot.entities.Order;
+import org.finalproject.spring.boot.repo.HoldingsRepository;
 import org.finalproject.spring.boot.repo.OrderRepository;
+import org.finalproject.spring.boot.repo.SecurityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +18,11 @@ import java.util.List;
 public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private HoldingsRepository holdingsRepository;
+    @Autowired
+    private SecurityRepository securityRepository;
 
     @Autowired
     private SecurityService securityService;
@@ -68,7 +76,22 @@ public class OrderService {
         }
         String securityName = orderRepository.getTickerBySecurityId(order.getSecurityId());
         order.setSecurityName(securityName);
+        int exists = holdingsRepository.checkIfSecurityExist(order.getSecurityId());
+        int currLot=0;
+        String company = orderRepository.getCompanyNameBySecurityId(order.getSecurityId());
+
+        if (exists>0){
+            currLot = holdingsRepository.getLotFromSid(order.getSecurityId());
+
+        }
+
+        Holdings myHoldings = new Holdings(order.getSecurityId(), order.getSecurityName(), company, currLot+1, securityRepository.getCurrPriceFromSid(order.getSecurityId()));
+        if (exists>0){
+            // I heard save() to jpa can also do update but I'm not sure
+            myHoldings.setId(holdingsRepository.getIdFromSid(order.getSecurityId()));
+        }
         orderRepository.save(order);
+        holdingsRepository.save(myHoldings);
     }
 
     public void executeOrder(Order order) {
