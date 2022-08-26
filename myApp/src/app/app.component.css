@@ -6,6 +6,7 @@ html{
     width:100%;
     font-family: Trebuchet MS, sans-serif;
     background-color:#dcdddf;
+    color: #fff;
     
 }
 .header{
@@ -15,7 +16,7 @@ html{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top:0px;
     right:20px;
-
+    border-color: #DB230B;
   }
 .header .typed{
     margin-left: 10px;
@@ -40,10 +41,11 @@ html{
     height: 100%;
     width: 100%;
     right: 10;
-    border-right: 4px solid #425e7f;/*Blinking cursor*/
+    margin-right: 1px;
+    border-right: 4px solid #fff;/*Blinking cursor*/
   }
 .welcome {
-    background-color: #d1c0bd;
+    background-color: #005893;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     margin:0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
