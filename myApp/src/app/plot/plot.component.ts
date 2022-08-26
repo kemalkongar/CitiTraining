@@ -1,12 +1,9 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Security } from '../security';
-import { PlotSecurity } from '../plotSecurity'
 import { SecurityService } from '../security.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-// import { CountryRenewableElectricityItem, CountryRenewableElectricity } from './CountryRenewableElectricity';
-import { IgxLegendComponent, IgxCategoryChartComponent } from 'igniteui-angular-charts';
-import { ChartDataset, ChartOptions } from 'chart.js';
+// import { AfterViewInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-plot',
@@ -49,16 +46,7 @@ export class PlotComponent implements OnInit {
   //   console.log('error');
   // });
   // }
-  lineChartData: ChartDataset[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
-  ];
-  lineChartLabels: string[] = ['January', 'February', 'March', 'April', 'May', 'June'];
-  lineChartOptions = {
-    responsive: true,
-  };
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType = 'line';
+
 
 }
 

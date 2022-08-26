@@ -75,14 +75,14 @@
     transform: translateY(2px);
   }
 
-.lineChart{
+/* .lineChart{
     background-color: #c1cbd7;
     height: 300px;
     border-radius: 25px;
 
-    /* overflow: scroll; */
+    overflow: scroll;
 
-}
+} */
 .searchTicker{
   background-color: #c1cbd7;
   height: 150px;

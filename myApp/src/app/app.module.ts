@@ -7,7 +7,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { OrderQueueListComponent } from './order-queue-list/order-queue-list.component';
 import { HoldingsListComponent } from './holdings-list/holdings-list.component';
 import { OrderFormComponent } from './order-form/order-form.component';
-
+import { PlotChartComponent } from './plot-chart/plot-chart.component';
 import { PlotComponent } from './plot/plot.component';
 import { SecurityService } from './security.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +19,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { IgxLegendModule, IgxCategoryChartModule } from 'igniteui-angular-charts';
 import { CommonModule } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgChartsModule } from 'ng2-charts';
+// import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { NgChartsModule } from 'ng2-charts';
     OrderQueueListComponent,
     HoldingsListComponent,
     OrderFormComponent,
-    PlotComponent
+    PlotComponent,
+    PlotChartComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -42,8 +43,8 @@ import { NgChartsModule } from 'ng2-charts';
     HttpClientModule, 
     Ng2SearchPipeModule, 
     FormsModule,
-    Ng2SmartTableModule,
-    NgChartsModule
+    Ng2SmartTableModule
+    // NgChartsModule
   ],
   providers: [SecurityListComponent, SecurityService],
   bootstrap: [AppComponent]
