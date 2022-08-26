@@ -3,7 +3,6 @@ import { Security } from '../security';
 import { SecurityService } from '../security.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { IgxLegendComponent, IgxCategoryChartComponent } from 'igniteui-angular-charts';
 @Component({
   selector: 'app-plot',
   templateUrl: './plot.component.html',
@@ -26,11 +25,6 @@ export class PlotComponent implements OnInit {
     console.log('error');
   });
 }
-
-  @ViewChild("legend", { static: true } )
-  private legend: IgxLegendComponent
-  @ViewChild("chart", { static: true } )
-  private chart: IgxCategoryChartComponent
 
   // selectSecurity(id:number): void {
   //   this.securityService?.findByID(id).subscribe((data) => {
