@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ViewChild, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DayPrice, DayPriceItem } from './DayPrice';
 import { IgxCategoryChartComponent } from 'igniteui-angular-charts';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-plot-chart',
@@ -12,23 +13,26 @@ import { IgxCategoryChartComponent } from 'igniteui-angular-charts';
 export class PlotChartComponent{
 
 
+
   public constructor(private _detector: ChangeDetectorRef) {
 
   }  
 
     @ViewChild("chart", { static: true } )
-    private chart: IgxCategoryChartComponent
+    private chart: IgxCategoryChartComponent;
     private _dayPrice!: DayPrice;
+
+    
+
     public get dayPrice(): DayPrice {
 
     //should return a security, need to transform into DayPrice obj
 
 
-
         if (this._dayPrice == null)
         {
           console.log("getting data");
-          // this._dayPrice = new DayPrice();
+          this._dayPrice = new DayPrice();
         }
         return this._dayPrice;
     }
