@@ -17,4 +17,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query(value="SELECT ticker FROM Securities WHERE id=?1 ;",nativeQuery = true)
     String getTickerBySecurityId(int sid);
+
+    @Query(value="SELECT name FROM Securities WHERE id=?1 ;",nativeQuery = true)
+    String getCompanyNameBySecurityId(int sid);
 }
