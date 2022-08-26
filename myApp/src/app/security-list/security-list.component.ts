@@ -37,6 +37,11 @@ export class SecurityListComponent implements OnInit {
         title: 'Market Price',
         editable: false,
         addable: false
+      },
+      exchange: {
+        title: "Exchange",
+        editable: false,
+        addable: false
       }
     },
   };
