@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import{ GlobalConstants } from './global-constants';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import { identifierModuleUrl } from '@angular/compiler';
 // import { map } from 'rxjs/operators';
 // import { timeout } from 'rxjs/operators';
 
