@@ -84,12 +84,18 @@ public class OrderService {
             currLot = holdingsRepository.getLotFromSid(order.getSecurityId());
 
         }
+        int change=order.getQuantity();
 
-        Holdings myHoldings = new Holdings(order.getSecurityId(), order.getSecurityName(), company, currLot+1, securityRepository.getCurrPriceFromSid(order.getSecurityId()));
+
+        if (order.getOrderType().equals("SELL")){
+            change = -change;
+        }
+        Holdings myHoldings = new Holdings(order.getSecurityId(), order.getSecurityName(), company, currLot+change, securityRepository.getCurrPriceFromSid(order.getSecurityId()));
         if (exists>0){
             // I heard save() to jpa can also do update but I'm not sure
             myHoldings.setId(holdingsRepository.getIdFromSid(order.getSecurityId()));
         }
+
         orderRepository.save(order);
         holdingsRepository.save(myHoldings);
     }
